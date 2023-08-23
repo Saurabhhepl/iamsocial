@@ -10,16 +10,27 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Button } from "@mui/material";
 // React Router dom
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logoutUser } from "../../actions/authActions";
 
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
+  // Logout
   const storedUsername = localStorage.getItem('username');
+  const history=useNavigate();
+  const dispatch=useDispatch();
+  const handleLogout = () => {
+  
+    dispatch(logoutUser( ));
+    history("/login")
+  };
   return (
     <div className="navbar">
       <div className="left">
@@ -49,7 +60,7 @@ const Navbar = () => {
           />
           <span>{storedUsername}</span>
 
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={handleLogout} >
             Logout
           </Button>
         </div>

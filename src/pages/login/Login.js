@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { loginUser, registerUser } from '../../actions/authActions';
 import { useEffect } from "react";
+
  
 import "./login.scss";
 
@@ -11,6 +12,8 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history=useNavigate();
+  
  
 
   // Load username and password from local storage on component mount
@@ -32,6 +35,11 @@ const Login = () => {
   const handleLogin = () => {
     dispatch(loginUser(username, password));
     alert("Login success")
+    history("/"); 
+    if(!username){
+      history("/login"); 
+    }
+    
   };
 
   const handleRegister = () => {

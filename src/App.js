@@ -10,13 +10,15 @@ const App = () => {
 
 
   return (
-    
-      <Routes>
+    <Router>
+     <Routes>
        {/* Other routes */}
-        <Route path="/login" component={Login} />
-        <Route path="/" component={HomePage} />
-
+        <Route path="/login" element={<Login/>} />
+        <Route path="/" element={<HomePage/>} />
       </Routes>
+
+    </Router>
+ 
     
   );
 };

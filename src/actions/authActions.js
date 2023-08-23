@@ -29,7 +29,7 @@ export const loginUser = (username, password) => async dispatch => {
 // Logout Action
 export const logoutUser = () => async dispatch => {
     // Clear user data from local storage
-    localStorage.removeItem('userData');
+    localStorage.clear();
 
     // Dispatch the logout action
     dispatch({ type: 'LOGOUT' });
