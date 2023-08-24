@@ -15,13 +15,12 @@ import { logoutUser } from "../../actions/authActions";
 
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
-import { AuthContext } from "../../context/authContext";
+
 import { useDispatch } from "react-redux";
 
 const Navbar = () => {
 
   const { toggle, darkMode } = useContext(DarkModeContext);
-  const { currentUser } = useContext(AuthContext);
   // Logout
   const storedUsername = localStorage.getItem('username');
   const history=useNavigate();
@@ -55,7 +54,7 @@ const Navbar = () => {
         <NotificationsOutlinedIcon />
         <div className="user">
           <img
-            src={currentUser.profilePic}
+        
             alt=""
           />
           <span>{storedUsername}</span>
