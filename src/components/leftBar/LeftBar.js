@@ -18,8 +18,6 @@ import { Button } from "@mui/material";
 const LeftBar = () => {
 
   const storedUsername = localStorage.getItem('username');
-
-
   return (
     <div className="leftBar">
       <div className="container">

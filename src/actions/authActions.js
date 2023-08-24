@@ -7,22 +7,10 @@ export const loginUser = (username, password) => async dispatch => {
             username: username,
             password: password
         });
-        console.log(response)
-            
-        const user = response.data;
-         // Assuming the response contains the user data
-         console.log(user.email,user.roles)
-
-       
-
-        if (user) {
-            dispatch({ type: 'LOGIN_SUCCESS', payload: user });
-   
-        } else {
-            dispatch({ type: 'LOGIN_FAILURE' });
-        }
-    } catch (error) {
+        return true;
+      } catch (error) {
         dispatch({ type: 'LOGIN_FAILURE' });
+        
     }
 };
 
@@ -30,9 +18,10 @@ export const loginUser = (username, password) => async dispatch => {
 export const logoutUser = () => async dispatch => {
     // Clear user data from local storage
     localStorage.clear();
-
     // Dispatch the logout action
     dispatch({ type: 'LOGOUT' });
+
+
 };
 
 // Register User

@@ -32,13 +32,15 @@ const Login = () => {
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
-  const handleLogin = () => {
-    dispatch(loginUser(username, password));
+  const handleLogin = async () => {
+    const success= await dispatch(loginUser(username, password));
+ 
     alert("Login success")
-    history("/"); 
-    if(!username){
-      history("/login"); 
+  
+    if(success==true){
+      history("/"); 
     }
+   
     
   };
 
@@ -88,7 +90,7 @@ const Login = () => {
             />
             <button onClick={handleLogin}>Login</button>
             
-            {auth.success && <p style={{ color: 'green' }}>{auth.success}</p>}
+
 
             {auth.error && <p style={{ color: 'red' }}>{auth.error}</p>}
 
