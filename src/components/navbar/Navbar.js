@@ -36,22 +36,24 @@ const Navbar = () => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <span>lamasocial</span>
         </Link>
-        <HomeOutlinedIcon />
-        {darkMode ? (
+        {/* <HomeOutlinedIcon /> */}
+        {/* {darkMode ? (
           <WbSunnyOutlinedIcon onClick={toggle} />
         ) : (
           <DarkModeOutlinedIcon onClick={toggle} />
-        )}
-        <GridViewOutlinedIcon />
+        )} */}
+        {/* <GridViewOutlinedIcon /> */}
+        
+      </div>
+      <div className="right">
+        <PersonOutlinedIcon />
         <div className="search">
           <SearchOutlinedIcon />
           <input type="text" placeholder="Search..." />
         </div>
-      </div>
-      <div className="right">
-        <PersonOutlinedIcon />
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
+        
         <div className="user">
           <img
         

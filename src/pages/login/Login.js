@@ -35,11 +35,12 @@ const Login = () => {
   const handleLogin = async () => {
     const success= await dispatch(loginUser(username, password));
  
-    alert("Login success")
+    // alert("Login success")
   
     if(success==true){
       history("/"); 
     }
+    
    
     
   };
